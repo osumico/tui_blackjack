@@ -27,7 +27,6 @@ Metaclass defining a player, player is an abstraction, the current player is def
 class Player(IPlayer):
     
     def __init__(self, smoney: int) -> None:
-        
         self.range_check = 0
         self.aces_count = 0
         self.pstat = {
@@ -44,7 +43,6 @@ class Player(IPlayer):
         self.price()
     
     def price(self) -> None:
-        
         hand = self.pstat
         for i in range(self.range_check, len(hand['hand_card'])):
             

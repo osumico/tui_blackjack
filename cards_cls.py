@@ -53,8 +53,7 @@ The base class of a playing card. The functionality is implemented in methods:
     ]
     
     def __init__(self, suit: str, value: str) -> None:
-        
-        self.points = int()
+        self.points = 0
         self.val_suit = {
             'value': value,
             'suit': suit,
