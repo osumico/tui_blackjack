@@ -17,7 +17,10 @@ successor classes.
     @abstractmethod
     def price(self) -> int:
         pass
-    
+
+    '''
+    !MUST SEND IN TGUI PACKAGE!
+       
     @abstractmethod
     def draw(self) -> None:
         pass
@@ -29,15 +32,14 @@ successor classes.
     @abstractmethod
     def show(self) -> None:
         pass
-    
+    '''
 
 class Card(ICard):
     '''
 The base class of a playing card. The functionality is implemented in methods:
 
 - price: set the self.points of the card called when the class is initialized.
-- show/hide: show front/back of card
-- draw: draws the card, called when the class is initialized. You can recall the method again to draw a new card front/back, that's fine.
+- ace_price: set price card if this ace, need call ace_check() before this
     '''
     points = int()
     val_suit = {
@@ -65,7 +67,6 @@ The base class of a playing card. The functionality is implemented in methods:
         self.val_suit['suit'] = suit
         self.val_suit['value'] = value
         self.price()
-        self.draw()
       
     
     def price(self) -> None:
@@ -97,6 +98,8 @@ The base class of a playing card. The functionality is implemented in methods:
             case 1:
                 self.points = 11
     
+    '''
+    !MUST SEND IN TGUI PACKAGE!
     
     def draw(self, bfiller: str = back_fillers[1], ffiller: str = front_filler[0]) -> None:
         card_front = \
@@ -121,6 +124,7 @@ f""" _____
     
     def show(self) -> str:
         return self.card_draw['front']
+    '''
     
     def value(self) -> str:
         return self.val_suit['value']
@@ -143,11 +147,10 @@ Metaclass that defines the interface semblance for the future deck of cards obje
     @abstractmethod
     def shuffle(self) -> None:
         pass
-    
+
     @abstractmethod
     def draw_card(self) -> object:
         pass
-    
     
 
 class Deck(IDeck):
