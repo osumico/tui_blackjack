@@ -70,6 +70,10 @@ The base class of a playing card. The functionality is implemented in methods:
       
     
     def price(self) -> None:
+        '''
+Call self.points if you need price of card. That method only set price of card.
+        '''
+        
         value = self.val_suit['value']
         
         try:
@@ -149,7 +153,7 @@ Metaclass that defines the interface semblance for the future deck of cards obje
         pass
 
     @abstractmethod
-    def draw_card(self) -> object:
+    def draw_card(self) -> tuple:
         pass
     
 
