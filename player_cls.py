@@ -26,16 +26,15 @@ Metaclass defining a player, player is an abstraction, the current player is def
     
 class Player(IPlayer):
     
-    range_check = 0
-    aces_count = 0
-    pstat = {
-        'prices': 0,
-        'money': int(),
-        'hand_card': list(),
-    }
-    
     def __init__(self, smoney: int) -> None:
-        self.pstat['money'] = smoney
+        
+        self.range_check = 0
+        self.aces_count = 0
+        self.pstat = {
+            'prices': 0,
+            'money': smoney,
+            'hand_card': list(),
+        }
     
     def to_hand(self, card: tuple) -> None:
         
@@ -61,3 +60,32 @@ class Player(IPlayer):
     
     def extract_stat(self) -> dict:
         return self.pstat
+
+    def money(self, ammount: int, take: bool) -> None:
+        if ammount <= self.pstat['money']:
+            if take:
+                self.pstat['money'] += ammount
+                
+            else:
+                self.pstat['money'] -= ammount
+                
+                
+                
+                
+class X:
+    x = []
+    
+
+    def yappend(self, y) -> None:
+        x = self.x
+        x.append(y)
+        
+        
+        
+x0 = X()
+x0.yappend(2)
+
+x1 = X()
+x1.yappend(3)
+
+print(x0.x)

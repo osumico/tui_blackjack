@@ -41,22 +41,12 @@ The base class of a playing card. The functionality is implemented in methods:
 - price: set the self.points of the card called when the class is initialized.
 - ace_price: set price card if this ace, need call ace_check() before this
     '''
-    points = int()
-    val_suit = {
-        'value': str(),
-        'suit': str(),
-    }
-    card_draw = {
-        'front': str(),
-        'back': str(),
-    }
     
     back_fillers = [
         '+',
         '#',
         '.',
     ]
-    
     front_filler = [
         ' ',
         '.',
@@ -64,8 +54,15 @@ The base class of a playing card. The functionality is implemented in methods:
     
     def __init__(self, suit: str, value: str) -> None:
         
-        self.val_suit['suit'] = suit
-        self.val_suit['value'] = value
+        self.points = int()
+        self.val_suit = {
+            'value': value,
+            'suit': suit,
+        }
+        self.card_draw = {
+            'front': str(),
+            'back': str(),
+        }
         self.price()
       
     
@@ -166,19 +163,20 @@ The base class of a deck of cards, provides the creation of a new deck, and draw
     '''
     
     suit_types = list()
-    card_deck = list()
     all_types = list()
     
     small_types = [str(cardt) for cardt in range(2, 10 + 1)]
     big_types = [str(cardt) for cardt in "JQKA"]
 
     def __init__(self, suit: str = "V^*o") -> None:
+        self.card_deck = list()
         self.suit_types = [str(cardt) for cardt in "V^*o"]
         self.all_types = self.small_types + self.big_types
         
         for suit in self.suit_types:
             for types in self.all_types:
                 self.card_deck.append((suit, types))
+                
                 
     def shuffle(self) -> None:
         random.shuffle(self.card_deck)
