@@ -35,9 +35,9 @@ class Card(ICard):
     '''
 The base class of a playing card. The functionality is implemented in methods:
 
-- price: set the self.points of the card
+- price: set the self.points of the card called when the class is initialized.
 - show/hide: show front/back of card
-- draw: draws the map, should called when the class is initialized.
+- draw: draws the card, called when the class is initialized. You can recall the method again to draw a new card front/back, that's fine.
     '''
     points = int()
     val_suit = {
@@ -65,6 +65,7 @@ The base class of a playing card. The functionality is implemented in methods:
         self.val_suit['suit'] = suit
         self.val_suit['value'] = value
         self.price()
+        self.draw()
       
     
     def price(self) -> None:
@@ -150,7 +151,13 @@ Metaclass that defines the interface semblance for the future deck of cards obje
     
 
 class Deck(IDeck):
+    '''
+The base class of a deck of cards, provides the creation of a new deck, and drawing cards from the deck with subsequent removal in the current deck object. The functionality is implemented in the methods:
 
+- shuffle: shuffle the deck, returns nothing
+- draw_card: draw the last card, remove it from the deck. Returns a tuple.
+    '''
+    
     suit_types = list()
     card_deck = list()
     all_types = list()
