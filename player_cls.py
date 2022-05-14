@@ -67,23 +67,3 @@ class Player(IPlayer):
             else:
                 self.pstat['money'] -= ammount
                 
-                
-                
-                
-class X:
-    x = []
-    
-
-    def yappend(self, y) -> None:
-        x = self.x
-        x.append(y)
-        
-        
-        
-x0 = X()
-x0.yappend(2)
-
-x1 = X()
-x1.yappend(3)
-
-print(x0.x)
