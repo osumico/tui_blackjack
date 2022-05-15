@@ -21,8 +21,8 @@ dealer.money(30, False)
 player_stat = player.extract_stat()
 dealer_stat = dealer.extract_stat()
 
-player_dhand = UI.CDrawer.form_vhand(player_stat['hand_card'], True)
-dealer_dhand = UI.CDrawer.form_vhand(dealer_stat['hand_card'], False)
+player_dhand = UI.Drawer.form_vhand(player_stat['hand_card'], True)
+dealer_dhand = UI.Drawer.form_vhand(dealer_stat['hand_card'], False)
 
-print(player_dhand)
 print(dealer_dhand)
+print(player_dhand)

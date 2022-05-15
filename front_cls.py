@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
 
-class CDrawer:
+class Drawer:
     
     back_fillers = [
         '+',
@@ -50,7 +50,7 @@ f""" _____
         
         dhand = list()
         for card in hand:
-            dcard = CDrawer(card)
+            dcard = Drawer(card)
             
             if is_show:
                 dhand.append(dcard.show())
@@ -63,7 +63,7 @@ f""" _____
     @staticmethod
     def form_vhand(hand: list, is_show: bool) -> list:
         
-        hand_drawc = CDrawer.form_vlist(hand, is_show)
+        hand_drawc = Drawer.form_vlist(hand, is_show)
         card_string, lines = '', 0
         
         for i in range(len(hand_drawc[0])):
