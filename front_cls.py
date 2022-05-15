@@ -85,6 +85,3 @@ f""" _____
     
     def show(self) -> str:
         return self.card_draw['front']
-    
-class DDrawer:
-    pass
