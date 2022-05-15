@@ -2,6 +2,11 @@ from abc import abstractmethod
 
 
 class Drawer:
+    '''
+A class that draws playing cards, and the cards in the player's hand. The functionality of the class is implemented in the method:
+
+- form_vhand: returns a string with cards arranged in a row, the second parameter determines the visibility of the cards.
+    '''
     
     back_fillers = [
         '+',
@@ -85,3 +90,7 @@ f""" _____
     
     def show(self) -> str:
         return self.card_draw['front']
+    
+    
+class TUI:
+    pass
