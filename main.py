@@ -18,5 +18,11 @@ for _ in range(2):
 player.money(30, False)
 dealer.money(30, False)
 
-print(player.extract_stat())
-print(dealer.extract_stat())
+player_stat = player.extract_stat()
+dealer_stat = dealer.extract_stat()
+
+player_dhand = UI.CDrawer.form_vhand(player_stat['hand_card'], True)
+dealer_dhand = UI.CDrawer.form_vhand(dealer_stat['hand_card'], False)
+
+print(player_dhand)
+print(dealer_dhand)

@@ -18,21 +18,6 @@ successor classes.
     def price(self) -> int:
         pass
 
-    '''
-    !MUST SEND IN TGUI PACKAGE!
-       
-    @abstractmethod
-    def draw(self) -> None:
-        pass
-    
-    @abstractmethod
-    def hide(self) -> None:
-        pass
-    
-    @abstractmethod
-    def show(self) -> None:
-        pass
-    '''
 
 class Card(ICard):
     '''
@@ -41,16 +26,6 @@ The base class of a playing card. The functionality is implemented in methods:
 - price: set the self.points of the card called when the class is initialized.
 - ace_price: set price card if this ace, need call ace_check() before this
     '''
-    
-    back_fillers = [
-        '+',
-        '#',
-        '.',
-    ]
-    front_filler = [
-        ' ',
-        '.',
-    ]
     
     def __init__(self, suit: str, value: str) -> None:
         self.points = 0
@@ -97,34 +72,6 @@ Call self.points if you need price of card. That method only set price of card.
                 self.points = 1
             case 1:
                 self.points = 11
-    
-    '''
-    !MUST SEND IN TGUI PACKAGE!
-    
-    def draw(self, bfiller: str = back_fillers[1], ffiller: str = front_filler[0]) -> None:
-        card_front = \
-f""" _____
-|{self.val_suit['value'].ljust(2, ffiller)}{ffiller * 3}|
-|{ffiller * 2}{self.val_suit['suit']}{ffiller * 2}|
-|{ffiller * 3}{self.val_suit['value'].rjust(2, ffiller)}|
- ‾‾‾‾‾"""
-        card_back = \
-f""" _____
-|{bfiller * 5}|
-|{bfiller * 5}|
-|{bfiller * 5}|
- ‾‾‾‾‾"""
- 
-        self.card_draw['front'] = card_front
-        self.card_draw['back'] = card_back
-        
-        
-    def hide(self) -> str:
-        return self.card_draw['back']
-    
-    def show(self) -> str:
-        return self.card_draw['front']
-    '''
     
     def value(self) -> str:
         return self.val_suit['value']
