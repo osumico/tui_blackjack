@@ -26,13 +26,14 @@ Metaclass defining a player, player is an abstraction, the current player is def
     
 class Player(IPlayer):
     
-    def __init__(self, smoney: int) -> None:
+    def __init__(self, smoney: int, is_player: bool) -> None:
         self.range_check = 0
         self.aces_count = 0
         self.pstat = {
             'prices': 0,
             'money': smoney,
             'hand_card': list(),
+            'is_player': is_player,
         }
     
     def to_hand(self, card: tuple) -> None:

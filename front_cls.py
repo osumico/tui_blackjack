@@ -93,15 +93,47 @@ f""" _____
     
     
 class TUI:
+
+    @staticmethod
+    def showed_score(player_stat: dict) -> str:
+        if player_stat['is_player']:
+            return "{:02d}".format(player_stat['prices'])
+        
+        else:
+            return "??"
     
-    def form_header():
-        pass
+    def init_message() -> str:
+        return \
+'''
+Welcome to the Terminal Black Jack Game! This is initial message.
+'''
     
-    def form_body():
-        pass
+    def form_header(bet: int, turn: int, money_main: int, money_sub: int) -> str:
+        turn = turn // 2
+        
+        return \
+f'''
+BET: {bet}\t\t\t\t TURN: {turn}\n
+You ($): {money_main} \t\t\t Dealer($): {money_sub}
+'''
     
-    def form_footer():
-        pass
+    def form_body(hand_main: str, hand_sub: str,
+                  score_main: str = "00", score_sub: str = "00") -> str:
+        
+        return \
+f'''
+You hand
+{hand_main}
+Score: {score_main}
+
+Dealer hand
+{hand_sub}
+Score: {score_sub}
+'''
+    
     
     def form_menu():
-        pass
+        return \
+f'''
+(T)ake | (I)ncrease | (P)ass\n
+$> '''
