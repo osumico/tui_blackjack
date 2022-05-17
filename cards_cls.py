@@ -114,9 +114,9 @@ The base class of a deck of cards, provides the creation of a new deck, and draw
     small_types = [str(cardt) for cardt in range(2, 10 + 1)]
     big_types = [str(cardt) for cardt in "JQKA"]
 
-    def __init__(self, suit: str = "V^*o") -> None:
+    def __init__(self, suit: str = "♠♥♦♣") -> None:
         self.card_deck = list()
-        self.suit_types = [str(cardt) for cardt in "V^*o"]
+        self.suit_types = [str(cardt) for cardt in suit]
         self.all_types = self.small_types + self.big_types
         
         for suit in self.suit_types:
