@@ -67,4 +67,5 @@ class Player(IPlayer):
                 
             else:
                 self.pstat['money'] -= ammount
-                
+        
+        return ammount

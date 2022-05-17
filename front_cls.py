@@ -95,8 +95,8 @@ f""" _____
 class TUI:
 
     @staticmethod
-    def showed_score(player_stat: dict) -> str:
-        if player_stat['is_player']:
+    def showed_score(player_stat: dict, is_show: bool = False) -> str:
+        if player_stat['is_player'] or is_show:
             return "{:02d}".format(player_stat['prices'])
         
         else:
