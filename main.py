@@ -28,8 +28,8 @@ dealer_dhand = Drawer.form_vhand(dealer_stat['hand_card'], dealer_stat['is_playe
 init_msg = TUI.init_message()
 
 print(init_msg)
-time.sleep(1)
-os.system('cls')
+_= time.sleep(1) # Avoiding '0' return code
+_= os.system('cls')
 
 
 pl_money, dl_money = player_stat['money'], dealer_stat['money']
