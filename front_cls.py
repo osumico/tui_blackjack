@@ -93,4 +93,15 @@ f""" _____
     
     
 class TUI:
-    pass
+    
+    def form_header():
+        pass
+    
+    def form_body():
+        pass
+    
+    def form_footer():
+        pass
+    
+    def form_menu():
+        pass
