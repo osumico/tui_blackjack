@@ -6,11 +6,14 @@ class IPlayer:
 Metaclass defining a player, player is an abstraction, the current player is defined by a special variable.
     '''
 
+
     __metaclass__ = ABCMeta
+
 
     @abstractmethod
     def __init__(self) -> None:
         pass
+    
     
     @abstractmethod
     def to_hand(self) -> None:
@@ -20,11 +23,13 @@ Metaclass defining a player, player is an abstraction, the current player is def
     def price(self) -> dict:
         pass
 
+
     @abstractmethod
     def extract_stat(self) -> dict:
         pass
     
 class Player(IPlayer):
+    
     
     def __init__(self, smoney: int, is_player: bool) -> None:
         self.range_check = 0
@@ -36,12 +41,14 @@ class Player(IPlayer):
             'is_player': is_player,
         }
     
+    
     def to_hand(self, card: tuple) -> None:
         
         if card not in self.pstat['hand_card']:
             self.pstat['hand_card'].append(card)
             
         self.price()
+    
     
     def price(self) -> None:
         hand = self.pstat
@@ -57,8 +64,10 @@ class Player(IPlayer):
             self.pstat['prices'] += card.points
         self.range_check += 1
     
+    
     def extract_stat(self) -> dict:
         return self.pstat
+
 
     def money(self, ammount: int, take: bool) -> None:
         if ammount <= self.pstat['money']:

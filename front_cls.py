@@ -8,6 +8,7 @@ A class that draws playing cards, and the cards in the player's hand. The functi
 - form_vhand: returns a string with cards arranged in a row, the second parameter determines the visibility of the cards.
     '''
     
+    
     back_fillers = [
         '+',
         '#',
@@ -17,6 +18,7 @@ A class that draws playing cards, and the cards in the player's hand. The functi
         ' ',
         '.',
     ]
+    
     
     def __init__(self, card_valsuit: tuple) -> None:
         
@@ -31,6 +33,7 @@ A class that draws playing cards, and the cards in the player's hand. The functi
         }
         
         self.draw()
+    
     
     def draw(self, bfiller: str = back_fillers[1], ffiller: str = front_filler[0]) -> None:
         
@@ -50,6 +53,7 @@ f""" _____
         self.card_draw['front'] = card_front
         self.card_draw['back'] = card_back
     
+    
     @staticmethod
     def form_vlist(hand: list, is_show: bool) -> list:
         
@@ -64,6 +68,7 @@ f""" _____
                  dhand.append(dcard.hide())
             
         return dhand
+
 
     @staticmethod
     def form_vhand(hand: list, is_show: bool) -> list:
@@ -85,14 +90,17 @@ f""" _____
                 
         return card_string
 
+
     def hide(self) -> str:
         return self.card_draw['back']
+    
     
     def show(self) -> str:
         return self.card_draw['front']
     
     
 class TUI:
+
 
     @staticmethod
     def showed_score(player_stat: dict, is_show: bool = False) -> str:
@@ -102,11 +110,13 @@ class TUI:
         else:
             return "??"
     
+    
     def init_message() -> str:
         return \
 '''
 Welcome to the Terminal Black Jack Game! This is initial message.
 '''
+    
     
     def form_header(bet: int, turn: int, money_main: int, money_sub: int) -> str:
         turn = turn // 2
@@ -116,6 +126,7 @@ f'''
 BET: {bet}\t\t\t\t TURN: {turn}\n
 You ($): {money_main} \t\t\t Dealer($): {money_sub}
 '''
+    
     
     def form_body(hand_main: str, hand_sub: str,
                   score_main: str = "00", score_sub: str = "00") -> str:
@@ -130,7 +141,6 @@ Dealer hand
 {hand_sub}
 Score: {score_sub}
 '''
-    
     
     def form_menu():
         return \

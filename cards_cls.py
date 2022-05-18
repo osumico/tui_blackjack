@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 import random
 
+
 class ICard:
     '''
 A metaclass whose task is to implement a convenient interface for accessing maps, i.e.
@@ -8,11 +9,13 @@ successor classes.
     '''
     
     __metaclass__ = ABCMeta
+    
         
     @abstractmethod
     def __init__( self, suit: str, value: str) -> None:
         
         pass
+    
     
     @abstractmethod
     def price(self) -> int:
@@ -26,6 +29,7 @@ The base class of a playing card. The functionality is implemented in methods:
 - price: set the self.points of the card called when the class is initialized.
 - ace_price: set price card if this ace, need call ace_check() before this
     '''
+    
     
     def __init__(self, suit: str, value: str) -> None:
         self.points = 0
@@ -69,6 +73,7 @@ Call self.points if you need price of card. That method only set price of card.
     def value(self) -> str:
         return self.val_suit['value']
     
+    
     def suit(self) -> str:
         return self.val_suit['suit']
     
@@ -79,14 +84,17 @@ Metaclass that defines the interface semblance for the future deck of cards obje
     '''
     
     __metaclass__ = ABCMeta
+
     
     @abstractmethod
     def __init__(self) -> None:
         pass
+
     
     @abstractmethod
     def shuffle(self) -> None:
         pass
+
 
     @abstractmethod
     def draw_card(self) -> tuple:
@@ -100,12 +108,13 @@ The base class of a deck of cards, provides the creation of a new deck, and draw
 - shuffle: shuffle the deck, returns nothing
 - draw_card: draw the last card, remove it from the deck. Returns a tuple.
     '''
+
     
     suit_types = list()
-    all_types = list()
-    
+    all_types = list()    
     small_types = [str(cardt) for cardt in range(2, 10 + 1)]
     big_types = [str(cardt) for cardt in "JQKA"]
+
 
     def __init__(self, suit: str = "♠♥♦♣") -> None:
         self.card_deck = list()
@@ -119,6 +128,7 @@ The base class of a deck of cards, provides the creation of a new deck, and draw
                 
     def shuffle(self) -> None:
         random.shuffle(self.card_deck)
+
         
     def draw_card(self) -> tuple:
         return self.card_deck.pop()
