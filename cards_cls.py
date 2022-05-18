@@ -64,6 +64,7 @@ Call self.points if you need price of card. That method only set price of card.
             return True
         
         return False
+     
     
     def value(self) -> str:
         return self.val_suit['value']
