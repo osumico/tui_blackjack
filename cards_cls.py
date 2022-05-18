@@ -64,14 +64,6 @@ Call self.points if you need price of card. That method only set price of card.
             return True
         
         return False
-     
-     
-    def ace_price(self, ace_choce: int = 0) -> None:
-        match ace_choce:
-            case 0:
-                self.points = 1
-            case 1:
-                self.points = 11
     
     def value(self) -> str:
         return self.val_suit['value']
